@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.metroparis.MetroController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.metroparis.MetroController">
+   <top>
+      <Label text=" metro paris buricerca percorsi" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ComboBox fx:id="boxpartenza" onAction="#partenca" />
+                  <Label text="partenza" GridPane.columnIndex="1" />
+                  <Label text="arrivo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="handlecerca" mnemonicParsing="false" onAction="#cerca" text="ricerca percorso" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <ComboBox fx:id="boxarrivo" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+            <TableView fx:id="tablefermata" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="colfermata" prefWidth="75.0" text="fermata" />
+              </columns>
+            </TableView>
+            <TextArea fx:id="txtResult" editable="false" prefHeight="144.0" prefWidth="262.0" />
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
